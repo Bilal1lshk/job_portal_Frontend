@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/resuable/navbar'
-import { CircleUser, Mail, Phone, PencilOff } from 'lucide-react';
+import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis } from 'lucide-react';
 
 import Aplicationstaus from '../../components/Aplicationstaus';
 import Edittab from '../../components/resuable/Edittab';
 import { useSelector } from 'react-redux';
+import { Button } from '../../components/ui/button';
+
 
 
 export default function Profile() {
   const [open, setopen] = useState(false)
-  const { user } = useSelector(store => store.setuser)
+  const user = useSelector(store => store?.Setuser?.user)
+  console.log(user)
+
+  const skillsArray = user?.profile?.skills?.split(",")
+
+
   return (
     <div className='min-h-screen  min-w-full bg-[#8EC5FF]'>
       <div className='w-full h-full '>
@@ -18,7 +25,7 @@ export default function Profile() {
 
           <h4>Your Profile {user?.fullname}</h4>
         </div>
-        <div className="intro min-h-[65%] mx-auto text-[#1C0770] font-medium  mt-14 w-[65%] shadow-sm bg-[#8EC5FF]">
+        <div className="intro min-h-[65%] max-h-[90%] mx-auto text-[#1C0770] font-medium  mt-14 md:w-[65%] w-[80%] p-2 shadow-sm bg-[#8EC5FF]">
           <div className="edit flex justify-end items-center p-3 ">
             <Edittab open={open} setopen={setopen} />
           </div>
@@ -28,19 +35,34 @@ export default function Profile() {
 
           </div>
           <div className='text-xl flex flex-col gap-2 mt-10  pt-3 pl-3 space-x-4'>
-            <div className='flex w-full items-center gap-2   '>
+            <div className='flex w-full md:flex-row flex-col items-center gap-2   '>
               <CircleUser color="#0B2D72" />
               <p> {user?.fullname}</p>
             </div>
-            <div className='flex w-full items-center gap-2   '>
+            <div className='flex w-full md:flex-row flex-col items-center gap-2   '>
               <Phone />
               <p>{user?.Phonenumber}</p>
             </div>
 
-            <div className='flex w-full items-center gap-2 '>
+            <div className='flex w-full md:flex-row flex-col items-center gap-2 '>
               <Mail />
-              <p>{user?.email}</p>
+              <p className='md:text-xl text-md'>{user?.email}</p>
             </div>
+          </div>
+          <div>
+           {
+            skillsArray?(<div  className='flex md:flex-row flex-col  md:pl-3  pt-2  justify-center items-center md:jutify-between md:items-center md:gap-3.5'>
+              <ChevronsLeftRightEllipsis />
+              <div className='flex items-start md:gap-3.5 px-4'>
+                {
+                  skillsArray?.map((skill,i) => (
+
+                      <Button variant="ghost" className='text-xl' key={i}>{skill}</Button>
+                  ))
+                }
+              </div>
+            </div>):(<p className='text-red-100 text-2xl font semibold'>no skills avalaible</p>)
+           } 
           </div>
 
           <div className='w-[50%] mx-auto'>

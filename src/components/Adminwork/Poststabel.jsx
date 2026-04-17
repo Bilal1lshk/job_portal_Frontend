@@ -10,38 +10,41 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Delete, DeleteIcon, Edit2, LucideDelete } from 'lucide-react'
-import axios from 'axios'
-import { Secret_admin_keys } from '../../Constants/keys'
+import axios, { all } from 'axios'
+import { Secret_admin_posts_keys } from '../../Constants/keys.js'
 import { useDispatch, useSelector } from 'react-redux'
-import { setallcompany } from '../../redux/companyslice'
+import { Setallposts } from "../../redux/postslice.js"
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
 
 
-export default function CompanyTabel() {
+export default function PostsTabel() {
     const dispatch = useDispatch()
     useEffect(() => {
         const getallcompanydata = async () => {
-         const allcompany = await axios.get(`${Secret_admin_keys}allcompany`,
+            const allcompany = await axios.get(`${Secret_admin_posts_keys}/Allposts`,
                 {
                     withCredentials: true
                 }
-            )   
-            const Allcompany = dispatch(setallcompany(allcompany.data))
+            )
+            toast.message(allcompany?.data?.message)
+            dispatch(Setallposts(allcompany?.data?.allPosts))
         }
         getallcompanydata()
 
 
     }, [])
-    const allcompany = useSelector(store => store.company.Allcompany)
+
+    const allcompany = useSelector(store => store?.postsdata?.allposts)
     return (
         <div className='h-auto w-full'>
             <div className='flex w-[80%] mx-auto mt-6 '>
                 <Table>
-                    <TableCaption>A list of your recent invoices.</TableCaption>
+                    <TableCaption>A list of your recent Posts Created.</TableCaption>
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[100px]">Logo</TableHead>
-                            <TableHead>Name</TableHead>
+                            <TableHead>Title</TableHead>
                             <TableHead>Desciption</TableHead>
                             <TableHead className="">Edit</TableHead>
                             <TableHead className="">Delete</TableHead>
@@ -50,16 +53,16 @@ export default function CompanyTabel() {
                     <TableBody>
 
                         {
-                            allcompany.map((company) => {
+                            allcompany?.map((company) => {
                                 return (
                                     <TableRow key={company?._id}>
                                         <TableCell className="font-medium">..</TableCell>
-                                        <TableCell>{company?.name}</TableCell>
-                                        <TableCell>{company?.description}</TableCell>
-                                        <TableCell className=" mr-4"><Link to={`/admin/companies/update/${company._id}`}><Edit2 />                                        </Link>
+                                        <TableCell>{company?.title}</TableCell>
+                                        <TableCell>{company?.Description?.slice(0,40)}....</TableCell>
+                                        <TableCell className=" mr-4"><Link to={`/admin/posts/update/${company._id}`}><Edit2 />                                        </Link>
                                         </TableCell>
                                         <TableCell>
-                                            <Link to={`/admin/company/delete/${company._id}`}><LucideDelete /></Link></TableCell>
+                                            <Link to={`/admin/posts/delete/${company._id}`}><LucideDelete /></Link></TableCell>
 
                                     </TableRow>
                                 )

@@ -1,6 +1,7 @@
 import {
     Dialog,
     DialogContent,
+    DialogClose,
     DialogDescription,
     DialogHeader,
     DialogTitle,
@@ -11,25 +12,34 @@ import React, { useEffect, useState } from "react"
 import { PencilOff } from "lucide-react"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
+import { Secret_api_key } from "../../Constants/keys";
+import { Setuservalue } from "../../redux/Setuser";
+import { Button } from "../ui/button";
 
 export default function Edittab() {
-    const { user } = useSelector(store => store.setuser);
-
+    const user = useSelector(store => store.Setuser.user);
     const [input, setinput] = useState({
         fullname: user?.fullname || "",
         email: user?.email || "",
         Phonenumber: user?.Phonenumber || "",
+        skills: user?.profile?.skills || "",
+
     })
-    useDispatch()
+    const dispatch = useDispatch()
 
     function onvaluechange(e) {
         setinput({ ...input, [e.target.name]: e.target.value })
+
     }
-    const onformsubmit = (e) => {
+    const onformsubmit = async (e) => {
         e.preventDefault()
+        const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
+            withCredentials: true,
+        })
+        dispatch(Setuservalue(response.data.user))
+
 
     }
-
     return (
         <Dialog>
             <DialogTrigger className="p-2 rounded-full hover:bg-gray-200 transition">
@@ -41,7 +51,6 @@ export default function Edittab() {
                     <DialogTitle className="text-2xl font-semibold text-center">
                         Your Profile
                     </DialogTitle>
-
                     <DialogDescription asChild>
                         <form onSubmit={onformsubmit} className="flex flex-col gap-4 mt-4">
 
@@ -52,7 +61,7 @@ export default function Edittab() {
                                 <input
                                     type="text"
                                     name="fullname"
-                                    value={user.fullname}
+                                    value={input.fullname}
                                     onChange={onvaluechange}
                                     placeholder="Your Name"
                                     className="border rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
@@ -66,8 +75,8 @@ export default function Edittab() {
                                 <input
                                     type="tel"
                                     placeholder="03XX XXXXXXX"
-                                    name="phonenumber"
-                                    value={user.Phonenumber}
+                                    name="Phonenumber"
+                                    value={input.Phonenumber}
                                     onChange={onvaluechange}
 
 
@@ -83,25 +92,39 @@ export default function Edittab() {
                                     type="email"
                                     placeholder="example@email.com"
                                     name="email"
-                                    value={user.email}
-
+                                    value={input.email}
                                     onChange={onvaluechange}
-
-
+                                    className="border rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm font-medium">
+                                    Enter your Skills
+                                </label>
+                                <input
+                                    placeholder="Skill,Skill,Skill"
+                                    name="skills"
+                                    value={input?.skills}
+                                    onChange={onvaluechange}
                                     className="border rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
 
-                            <button
+                            <DialogClose
                                 type="submit"
+                                asChild
                                 className="mt-3 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
                             >
-                                Save Changes
-                            </button>
+                                <Button>Save Changes</Button>
+                            </DialogClose>
+                            <DialogClose asChild>
+                                <Button variant="outline">Cancel</Button>
+                            </DialogClose>
 
                         </form>
                     </DialogDescription>
                 </DialogHeader>
+
             </DialogContent>
         </Dialog>
     )

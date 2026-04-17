@@ -12,8 +12,10 @@ import {
 import Setuser from "./Setuser.js";
 
 import jobslice from "./Jobalice.js";
-import companyslice from "./companyslice.js";
+import Applicantslice from "./Applicants.js";
 
+import companyslice from "./companyslice.js";
+import postslice from "./postslice.js";
 import { localStorage } from 'redux-persist/lib/storage'
 import storage from "../Constants/sotrage.js";
 const perssistconfig = {
@@ -25,6 +27,9 @@ const rootReducer = combineReducers({
     Setuser: Setuser,
     jobdata: jobslice,
     company: companyslice,
+    applicant:Applicantslice,
+    postsdata:postslice
+   
 })
 const persistedReducer = persistReducer(perssistconfig, rootReducer)
 export const store = configureStore({

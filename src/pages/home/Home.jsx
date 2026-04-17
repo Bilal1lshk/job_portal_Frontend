@@ -8,7 +8,7 @@ import Footer from '../../components/resuable/Footer.jsx'
 
 export default function Home() {
     return (
-        <div className='h-screen w-full bg-[#E1EFF6]'>
+        <div className='min-h-screen w-full  flex flex-col'>
             <Navbar />
             <Herosection />
             <Scroller />

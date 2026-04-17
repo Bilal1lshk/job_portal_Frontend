@@ -47,7 +47,6 @@ export default function Signup() {
         }
         catch (err) {
             toast.error(err.message)
-            console.log(err)
         }
 
     }

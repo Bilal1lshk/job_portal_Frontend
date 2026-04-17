@@ -12,6 +12,17 @@ import Sepratejob from './pages/Jobpage/Sepratejob.jsx'
 import Createjob from "./components/Adminwork/Createjob.jsx"
 import Admincompany from './components/Adminwork/Admincompany.jsx'
 import AdminPosts from './components/Adminwork/AdminPosts.jsx'
+import Updatecompany from './components/Adminwork/Updatecompany.jsx'
+import JobHome from './components/Adminwork/JobHome.jsx'
+import AdmincompanyDelete from './components/Adminwork/AdmincompanyDelete.jsx'
+import JobCreate from './components/Adminwork/JobCreate.jsx'
+import Deleteadminjob from './components/Adminwork/Deleteadminjob.jsx'
+import DetailAdminjob from './components/Adminwork/DetailAdminjob.jsx'
+import ViewApplicants from './components/ViewApplicants.jsx'
+import AdminPostsCreate from './components/Adminwork/Adminpostcreate.jsx'
+import PostUpdate from './components/Adminwork/PostUpdate.jsx'
+import Postdelete from './components/Adminwork/Postdelete.jsx'
+import Detailpost from './components/Adminwork/Detailpost.jsx'
 
 function App() {
 
@@ -27,12 +38,26 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/jobs/:id' element={<Sepratejob />} />
-        {/* create admin comonents */}
-        <Route path='/admin/jobs' element={<Createjob />} />
-        {/* companies furthuer work */}
+        {/* create admin job comonents */}
+        <Route path='/admin/jobs' element={<JobHome />} />
+        <Route path="/admin/job/delete/:id" element={<Deleteadminjob />} />
+        <Route path="/admin/job/description/:id" element={<DetailAdminjob />} />
+        <Route path='/admin/jobs/create' element={<JobCreate />} />
+        <Route path='/admin/job/description/applications/:id' element={<ViewApplicants />} />
+
+
+        {/* companies company work */}
         <Route path='/admin/companies' element={<Admincompany />} />
         <Route path='/admin/companies/create' element={<Createjob />} />
-        <Route path='/admin/posts' element={<AdminPosts />} />
+        <Route path='/admin/company/delete/:id' element={<AdmincompanyDelete />} />
+        <Route path='/admin/companies/update/:id' element={<Updatecompany />} />
+
+        {/* posts works */}
+        <Route path='/admin/posts' element={<AdminPosts/>}></Route>
+        <Route path='/posts/:id' element={<Detailpost />} />
+        <Route path='/admin/posts/create' element={<AdminPostsCreate />} />
+        <Route path="/admin/posts/update/:id" element={<PostUpdate />}></Route>
+        <Route path='/admin/posts/delete/:id' element={<Postdelete />} />
 
 
 

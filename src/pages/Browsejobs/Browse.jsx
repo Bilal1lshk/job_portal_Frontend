@@ -6,14 +6,17 @@ import Latestjobs from '../../components/Latestjobs'
 const filterData = [
     {
         fitlerType: "Location",
+        value: 1,
         array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"]
     },
     {
         fitlerType: "Industry",
+        value: 2,
         array: ["Frontend Developer", "Backend Developer", "FullStack Developer"]
     },
     {
         fitlerType: "Salary",
+        value: 3,
         array: ["0-40k", "42-1lakh", "1lakh to 5lakh"]
     },
 ]
@@ -32,13 +35,13 @@ export default function Browse() {
                         {
 
                             filterData.map((item, index) => (
-                                <RadioGroup keydefaultValue="comfortable" className="w-fit">
+                                <RadioGroup keydefaultValue="comfortable" key={index} className="w-fit">
 
                                     <h1 className='text-2xl '>{item.fitlerType}</h1>
                                     {
-                                        item.array.map((items, i) => (
-                                            <div className='flex '>
-                                                <RadioGroupItem key={i} value={items} />
+                                        item.array.map((items) => (
+                                            <div className='flex ' key={items}>
+                                                <RadioGroupItem value={items} />
                                                 <label htmlFor="r3">{items}</label>
                                             </div>
                                         ))

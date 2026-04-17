@@ -1,22 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Newscomponent() {
+export default function Newscomponent({ post}) {
+    console.log(post)
+const postid=post?._id
     return (
-        <div className='w-[40%] h-auto rounded-sm shadow-2xl bg-gray-400 p-3 text-amber-50 text-xl'>
+        <div className="w-full max-w-auto flex flex-wrap mx-auto">
+            <Link to={`/posts/${postid}`}>
+                
+                <div className="h-full rounded-xl shadow-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-4 text-white flex flex-col justify-between">
 
-            <div>
-                News From BilalWebworks
-            </div>
-            <div>
+                    {/* Header */}
+                    <div className="text-xs sm:text-sm text-gray-300 mb-2">
+                        News From unknown
+                    </div>
 
+                    {/* Title */}
+                    <div className="text-base sm:text-lg md:text-xl font-semibold mb-2">
+                        {post?.title?.slice(0, 40)}...
+                    </div>
 
-                "We build websites that actually work — clean, fast, and built for real people."
+                    {/* Description */}
+                    <div className="text-sm sm:text-base text-gray-200">
+                        {post?.Description?.slice(0, 100)}...
+                    </div>
 
+                </div>
 
-            </div>
-            <div>
-                Bilal WebWorks is a small web studio focused on building simple, beautiful digital products. No fluff, no bloat — just good work delivered on time.
-            </div>
+            </Link>
         </div>
     )
 }

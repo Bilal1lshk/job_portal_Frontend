@@ -14,23 +14,23 @@ export default function Latestjobs() {
   useEffect(() => {
     const fetchJobs = async () => {
       const response = await axios.get(`${Secret_api_key}/job/Alljobs`)
-      dispatch(setalljobs(response.data))
+      dispatch(setalljobs(response?.data))
     }
 
     fetchJobs()
   }, [])
   const Alljobs = useSelector(store => store.jobdata.Alljobs)
   return (
-    <div className='h-auto w-full mt-22'>
+    <div className='h-auto w-full p-2 mt-22'>
       <div className='h-full w-[100%] flex flex-col items-start justify-between'>
         <div className='text-4xl flex justify-center h-full w-full mb-5'>
           <h2 className='text-[#0D1A63] font-medium tracking-wider'>Latest Job Openings</h2>
         </div>
-        <div className='flex h-full w-full flex-wrap  justify-evenly gap-8'>
+        <div className='flex h-full w-[95%] p-2 mx-auto flex-wrap  justify-evenly gap-8'>
           {
-            Alljobs ? Alljobs.slice(0,4).map((job, i) => {
+            Alljobs ? Alljobs.slice(0, 4).map((job, i) => {
               return (
-                <Job key={i} job={job} />
+                <Job key={job._id} job={job} />
               )
             }) : <span>NO</span>
           }
