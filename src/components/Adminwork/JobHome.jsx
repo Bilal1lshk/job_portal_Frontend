@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../resuable/navbar'
-import Jobtabel from './Jobtabel'
-import { Button } from '../ui/button'
+import Navbar from '../resuable/navbar.jsx'
+import Jobtabel from './Jobtabel.jsx'
+import { Button } from '../ui/button.jsx'
 import { Link } from 'react-router-dom'
 
 export default function JobHome() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../ui/button'
+import { Button } from '../ui/button.jsx'
 import { Link } from 'react-router-dom'
 
 export default function JobDeatils({ response }) {

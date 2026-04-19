@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../resuable/navbar'
+import Navbar from '../resuable/navbar.jsx'
 import {
     AlertDialog,
     AlertDialogAction,
@@ -11,7 +11,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from '../ui/button'
+import { Button } from '../ui/button.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import {Secret_admin_posts_keys } from '../../Constants/keys'

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/table"
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { setadminjobs } from '../../redux/Jobalice'
+import { setadminjobs } from '../../redux/Jobalice.js'
 import { BookUserIcon, Delete } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Secret_admin_Jobs_keys } from '../../Constants/keys'

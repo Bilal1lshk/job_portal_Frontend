@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../components/resuable/navbar'
+import Navbar from '../../components/resuable/navbar.jsx'
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import Latestjobs from '../../components/Latestjobs'
+import Latestjobs from '../../components/Latestjobs.jsx'
 
 const filterData = [
     {

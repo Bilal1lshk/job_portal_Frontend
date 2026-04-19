@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { Secret_admin_posts_keys } from '../../Constants/keys';
-import Navbar from '../resuable/navbar';
+import { Secret_admin_posts_keys } from '../../Constants/keys.js';
+import Navbar from '../resuable/navbar.jsx';
 
 export default function Detailpost() {
     const [postData, setpostdata] = useState(null)

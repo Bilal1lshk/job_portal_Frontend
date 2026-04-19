@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Secret_admin_Jobs_keys} from "../../Constants/keys";
+import { Secret_admin_Jobs_keys} from "../../Constants/keys.js";
 import { toast } from "sonner";
 
 

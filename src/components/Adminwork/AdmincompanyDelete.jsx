@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import Navbar from '../resuable/navbar'
+import Navbar from '../resuable/navbar.jsx'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Secret_admin_keys } from '../../Constants/keys'
+import { Secret_admin_keys } from '../../Constants/keys.js'
 import { useDispatch, useSelector } from 'react-redux'
-import { setsinglecompany } from '../../redux/companyslice'
-import { Button } from '../ui/button'
+import { setsinglecompany } from '../../redux/companyslice.js'
+import { Button } from '../ui/button.jsx'
 import { toast } from 'sonner'
 
 export default function AdmincompanyDelete() {

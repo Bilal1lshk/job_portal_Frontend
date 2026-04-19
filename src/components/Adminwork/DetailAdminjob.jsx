@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../resuable/navbar'
-import JobDeatils from './JobDeatils'
+import Navbar from '../resuable/navbar.jsx'
+import JobDeatils from './JobDeatils.jsx'
 import axios from 'axios'
-import { Secret_admin_Jobs_keys } from '../../Constants/keys'
+import { Secret_admin_Jobs_keys } from '../../Constants/keys.js'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setaaplicantvalue } from '../../redux/Applicants'
+import { setaaplicantvalue } from '../../redux/Applicants.js'
 
 export default function DetailAdminjob() {
   const params = useParams()

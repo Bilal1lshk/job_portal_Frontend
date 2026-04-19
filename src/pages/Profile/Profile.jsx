@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Navbar from '../../components/resuable/navbar'
+import Navbar from '../../components/resuable/navbar.jsx'
 import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis } from 'lucide-react';
 
-import Aplicationstaus from '../../components/Aplicationstaus';
-import Edittab from '../../components/resuable/Edittab';
+import Aplicationstaus from '../../components/Aplicationstaus.jsx';
+import Edittab from '../../components/resuable/Edittab.jsx';
 import { useSelector } from 'react-redux';
 import { Button } from '../../components/ui/button';
 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Secret_admin_posts_keys } from '../../Constants/keys'
+import { Secret_admin_posts_keys } from '../../Constants/keys.js'
 import { useNavigate, useParams } from 'react-router-dom'
 
 export default function PostUpdate() {

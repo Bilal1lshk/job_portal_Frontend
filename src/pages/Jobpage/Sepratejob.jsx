@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { MapPin, Clock, DollarSign, Briefcase, Building2, Users, ArrowLeft, BookmarkPlus, Send, CheckCircle2, Globe, Calendar, Star } from 'lucide-react'
-import Navbar from '../../components/resuable/navbar'
+import Navbar from '../../components/resuable/navbar.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Secret_api_key } from '../../Constants/keys'
+import { Secret_api_key } from '../../Constants/keys.js'
 import axios from 'axios'
-import { setajob } from '../../redux/Jobalice'
+import { setajob } from '../../redux/Jobalice.js'
 import { toast } from 'sonner'
 
 export default function Sepratejob() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../resuable/navbar'
+import Navbar from '../resuable/navbar.jsx'
 import {
     AlertDialog,
     AlertDialogAction,

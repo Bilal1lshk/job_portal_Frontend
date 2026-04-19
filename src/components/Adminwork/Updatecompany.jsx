@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
-import { Secret_admin_keys } from '../../Constants/keys';
+import { Secret_admin_keys } from '../../Constants/keys.js';
 
 export default function Updatecompany() {
     const praams = useParams()

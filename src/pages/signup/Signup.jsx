@@ -1,6 +1,6 @@
 import React from 'react'
-import Labelandinput from '../../components/resuable/labelandinput'
-import { Button } from '../../components/ui/button'
+import Labelandinput from '../../components/resuable/labelandinput.jsx'
+import { Button } from '../../components/ui/button.jsx'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Secret_api_key } from "../../Constants/keys.js"
