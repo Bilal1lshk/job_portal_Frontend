@@ -13,7 +13,9 @@ export default function Latestjobs() {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const response = await axios.get(`${Secret_api_key}/job/Alljobs`)
+      const response = await axios.get(`${Secret_api_key}/job/Alljobs`, {
+        withCredentials: true
+      })
       dispatch(setalljobs(response?.data))
     }
 

@@ -13,7 +13,9 @@ export default function DetailAdminjob() {
   const dispatch = useDispatch()
   const getjob = async () => {
     try {
-      const response = await axios.get(`${Secret_admin_Jobs_keys}job/${id}`)
+      const response = await axios.get(`${Secret_admin_Jobs_keys}job/${id}`, {
+        withCredentials: true
+      })
       dispatch(setaaplicantvalue(response.data))
     } catch (error) {
     }

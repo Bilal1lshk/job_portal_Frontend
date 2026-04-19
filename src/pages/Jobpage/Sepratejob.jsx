@@ -20,7 +20,9 @@ export default function Sepratejob() {
     useEffect(() => {
         async function getsinglejob() {
             try {
-                const response = await axios.get(`${Secret_api_key}/job/job/${pramsid}`)
+                const response = await axios.get(`${Secret_api_key}/job/job/${pramsid}`, {
+                    withCredentials: true
+                })
                 dispatch(setajob(response.data))
             } catch (err) {
                 throw err

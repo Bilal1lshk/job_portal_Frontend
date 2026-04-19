@@ -20,7 +20,9 @@ export default function Logout() {
     dispatch(Setuservalue(false))
     const logoutfunction = async (e) => {
         try {
-            const resposnse = await axios.get(`${Secret_api_key}/user/logout`)
+            const resposnse = await axios.get(`${Secret_api_key}/user/logout`, {
+                withCredentials: true
+            })
             if (resposnse.data.message && resposnse.data.succes) {
                 toast.success(resposnse.data.message)
                 navigate("/")
