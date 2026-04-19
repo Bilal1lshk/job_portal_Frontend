@@ -28,11 +28,11 @@ export default function Latestjobs() {
         </div>
         <div className='flex h-full w-[95%] p-2 mx-auto flex-wrap  justify-evenly gap-8'>
           {
-            Alljobs ? Alljobs.slice(0, 4).map((job, i) => {
+            Array.isArray(Alljobs) && Alljobs.length > 0 ? Alljobs.slice(0, 4).map((job, i) => {
               return (
                 <Job key={job._id} job={job} />
               )
-            }) : <span>NO</span>
+            }) : <span>No jobs available</span>
           }
 
         </div>

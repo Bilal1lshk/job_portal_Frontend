@@ -85,7 +85,8 @@ export default function Sepratejob() {
                                     { icon: <MapPin size={14} />, text: data?.location },
                                     { icon: <Clock size={14} />, text: data?.jobtype },
                                     { icon: <DollarSign size={14} />, text: data?.salary },
-                                    { icon: <Briefcase size={14} />, text: data?.requirements?.map((req) => (req)) },
+                                    { icon: <Briefcase size={14} />, text: Array.isArray(data?.requirements) ? data?.requirements.join(", ") : data?.requirements || "" },
+                                    { icon: <Users size={14} />, text: data?.application?.length },
                                     { icon: <Users size={14} />, text: data?.application?.length },
                                     { icon: <Calendar size={14} />, text: data?.company?.createdAt.split("T")[0] },
                                 ].map((item, i) => (
@@ -157,7 +158,7 @@ export default function Sepratejob() {
                         <div className="bg-white rounded-sm shadow-md px-10 py-9">
                             <h2 className="text-xs tracking-widest uppercase text-[#C9B99A] font-sans font-semibold mb-5">Skills & Requirements</h2>
                             <div className="flex flex-wrap gap-2.5">
-                                {data?.requirments.map((req, i) => (
+                                {Array.isArray(data?.requirments) && data?.requirments.map((req, i) => (
                                     <span key={i} className="bg-[#F5F3EF] border border-[#DDD8CE] text-[#0D1A63] px-4 py-2 rounded-sm text-xs tracking-wide font-sans font-medium">
                                         {req}
                                     </span>

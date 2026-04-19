@@ -13,7 +13,7 @@ export default function Posts() {
       <Navbar />
       <div className='flex w-[90%] mt-9 mx-auto gap-7'>
         {
-          data.map((post, i) => (
+          Array.isArray(data) && data.map((post, i) => (
             <div key={i}>
               <Newscomponent  post={post}/>
             </div>

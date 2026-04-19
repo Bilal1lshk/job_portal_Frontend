@@ -51,11 +51,11 @@ export default function Profile() {
           </div>
           <div>
            {
-            skillsArray?(<div  className='flex md:flex-row flex-col  md:pl-3  pt-2  justify-center items-center md:jutify-between md:items-center md:gap-3.5'>
+            Array.isArray(skillsArray) && skillsArray.length > 0 ? (<div  className='flex md:flex-row flex-col  md:pl-3  pt-2  justify-center items-center md:jutify-between md:items-center md:gap-3.5'>
               <ChevronsLeftRightEllipsis />
               <div className='flex items-start md:gap-3.5 px-4'>
                 {
-                  skillsArray?.map((skill,i) => (
+                  skillsArray.map((skill,i) => (
 
                       <Button variant="ghost" className='text-xl' key={i}>{skill}</Button>
                   ))

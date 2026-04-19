@@ -25,7 +25,7 @@ export default function Job({ job }) {
 
                         </Badge>
                         <div className='flex w-full flex-wrap'>
-                            {job?.requirments.map((req, i) => (
+                            {Array.isArray(job?.requirments) && job?.requirments.map((req, i) => (
                                 <Badge key={req} className="" variant="default" >
                                     {req}
                                 </Badge>

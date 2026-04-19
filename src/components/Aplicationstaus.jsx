@@ -44,7 +44,7 @@ export default function Aplicationstaus() {
                 <TableBody>
 
                     {
-                        statuses.map((status) =>
+                        Array.isArray(statuses) && statuses.map((status) =>
                         (
                             <TableRow key={status?._id}>
                                 <TableCell className="font-medium">{status?.createdAt.split("T")[0]}</TableCell>

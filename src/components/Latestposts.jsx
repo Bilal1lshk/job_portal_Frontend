@@ -39,7 +39,7 @@ export default function Latestposts() {
 
                 <div className='flex flex-col  w-[80%] flex-wrap justify-between mt-14 gap-2'>
                     {
-                        allposts?.map((post) => {
+                        Array.isArray(allposts) && allposts.map((post) => {
                             return (
                                 <Newscomponent key={post?._id} post={post} />
                             )

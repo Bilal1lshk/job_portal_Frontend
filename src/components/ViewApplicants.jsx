@@ -40,7 +40,7 @@ export default function ViewApplicants() {
                 <div className="flex flex-col gap-4">
                     {
 
-                        applicantdata.map((app, i) => {
+                        Array.isArray(applicantdata) && applicantdata.map((app, i) => {
                             return (
                                 <div
                                     key={app._id}
@@ -119,7 +119,7 @@ export default function ViewApplicants() {
                                     )}
 
                                     {/* Skills */}
-                                    {applicant?.requirments > 0 && (
+                                    {Array.isArray(applicant?.profile?.skills) && applicant?.profile?.skills.length > 0 && (
                                         <div>
                                             <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-2">Skills</p>
                                             <div className="flex flex-wrap gap-2">

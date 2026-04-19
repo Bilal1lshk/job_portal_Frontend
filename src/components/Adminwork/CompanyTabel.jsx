@@ -50,7 +50,7 @@ export default function CompanyTabel() {
                     <TableBody>
 
                         {
-                            allcompany.map((company) => {
+                            Array.isArray(allcompany) && allcompany.map((company) => {
                                 return (
                                     <TableRow key={company?._id}>
                                         <TableCell className="font-medium">..</TableCell>

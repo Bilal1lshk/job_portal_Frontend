@@ -56,7 +56,7 @@ export default function Jobtabel() {
             <TableBody>
 
                 {
-                    alladminjobs?.map((res) => {
+                    Array.isArray(alladminjobs) && alladminjobs.map((res) => {
                         const id = res._id
                         return (
                             <>
