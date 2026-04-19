@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
-import Labelandinput from '../../components/resuable/labelandinput'
-import { Button } from '../../components/ui/button'
+import Labelandinput from '../../components/resuable/labelandinput.jsx'
+import { Button } from '../../components/ui/button.jsx'
 import { Secret_api_key } from "../../Constants/keys.js"
 import axios from 'axios'
 import { toast } from 'sonner'

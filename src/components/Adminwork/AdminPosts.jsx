@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../resuable/navbar'
-import { Button } from '../ui/button'
-import CompanyTabel from './CompanyTabel'
+import Navbar from '../resuable/navbar.jsx'
+import { Button } from '../ui/button.jsx'
+import CompanyTabel from './CompanyTabel.jsx'
 import { Link } from 'react-router-dom'
 import PostsTabel from './Poststabel'
 

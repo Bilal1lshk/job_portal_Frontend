@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import Latestjobs from '../../components/Latestjobs'
-import Navbar from '../../components/resuable/navbar'
-import Newscomponent from '../../components/Newscomponent'
-import { Secret_admin_posts_keys } from '../../Constants/keys'
+import Latestjobs from '../../components/Latestjobs.jsx'
+import Navbar from '../../components/resuable/navbar.jsx'
+import Newscomponent from '../../components/Newscomponent.jsx'
+import { Secret_admin_posts_keys } from '../../Constants/keys.js'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 export default function Posts() {
