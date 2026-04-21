@@ -1,5 +1,5 @@
 
-import { Button } from './components/ui/button.jsx'
+import { useSelector } from 'react-redux'
 import Home from './pages/home/Home.jsx'
 import { Routes, Route } from 'react-router-dom'
 import Signup from './pages/signup/Signup.jsx'
@@ -25,6 +25,7 @@ import Postdelete from './components/Adminwork/Postdelete.jsx'
 import Detailpost from './components/Adminwork/Detailpost.jsx'
 
 function App() {
+  const user = useSelector(store => store?.Setuser?.user)
 
   return (
     <>
@@ -35,7 +36,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/browse' element={<Browse />} />
         <Route path='/posts' element={<Posts />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile' element={<Profile key={user?.id || 'profile'} />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/jobs/:id' element={<Sepratejob />} />
         {/* create admin job comonents */}

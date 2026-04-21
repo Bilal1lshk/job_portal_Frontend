@@ -16,7 +16,7 @@ import { Secret_api_key } from "../../Constants/keys";
 import { Setuservalue } from "../../redux/Setuser";
 import { Button } from "../ui/button";
 
-export default function Edittab() {
+export default function Edittab({ open: propOpen, setopen: propSetopen }) {
     const user = useSelector(store => store.Setuser.user);
     const [input, setinput] = useState({
         fullname: user?.fullname || "",
@@ -26,7 +26,11 @@ export default function Edittab() {
 
     })
     const [isLoading, setisLoading] = useState(false)
-    const [open, setopen] = useState(false)
+    const [localOpen, setLocalOpen] = useState(false)
+    
+    // Use props if provided, otherwise use local state
+    const open = propOpen !== undefined ? propOpen : localOpen
+    const setopen = propSetopen || setLocalOpen
     const dispatch = useDispatch()
 
     // Sync input when user data changes
@@ -46,12 +50,15 @@ export default function Edittab() {
     const onformsubmit = async (e) => {
         e.preventDefault()
         setisLoading(true)
+        console.log('Submitting form with data:', input)
         try {
             const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
                 withCredentials: true,
             })
-            console.log(response)
+            console.log('API Response:', response)
+            console.log('User data from response:', response.data.user)
             dispatch(Setuservalue(response.data.user))
+            console.log('Dispatched Setuservalue action')
             setopen(false) // Close dialog after successful update
         } catch (error) {
             console.error("Error updating profile:", error)

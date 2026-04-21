@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/resuable/navbar.jsx'
 import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis } from 'lucide-react';
 
@@ -12,9 +12,15 @@ import { Button } from '../../components/ui/button.jsx';
 export default function Profile() {
   const [open, setopen] = useState(false)
   const user = useSelector(store => store?.Setuser?.user)
-  console.log(user)
+  console.log('userfromprofile', user)
+  console.log('Profile component re-rendered')
+
+  useEffect(() => {
+    console.log('User data changed in Profile:', user)
+  }, [user])
 
   const skillsArray = user?.profile?.skills?.split(",")
+  console.log('skillsArray:', skillsArray)
 
 
   return (
