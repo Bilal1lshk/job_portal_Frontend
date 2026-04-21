@@ -11,7 +11,7 @@ import { toast } from 'sonner'
 export default function Sepratejob() {
     const [saved, setSaved] = useState(false)
     let prams = useParams()
-    const pramsid = prams.id
+    const pramsid = prams?.id
 
     const [applied, setApplied] = useState(false)
     const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export default function Sepratejob() {
 
     }, [pramsid])
     const data = useSelector(store => store.jobdata.Singlejob)
-    const result = data?.application.some((application) => application?.applicant._id === userid) || false
+    const result = data?.application.some((application) => application?.applicant?._id === userid) || false
     const jobid = data?._id
 
 

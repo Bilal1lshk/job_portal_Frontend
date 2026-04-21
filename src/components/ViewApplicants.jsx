@@ -76,7 +76,7 @@ export default function ViewApplicants() {
                                         <div className="flex gap-2 flex-shrink-0">
                                             {status !== "accepted" && (
                                                 <button
-                                                    onClick={() => handleStatus(_id, "accepted")}
+                                                    onClick={() => handleStatus(app._id, "accepted")}
                                                     className="px-4 py-2 text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg transition"
                                                 >
                                                     ✓ Accept
@@ -84,7 +84,7 @@ export default function ViewApplicants() {
                                             )}
                                             {status !== "rejected" && (
                                                 <button
-                                                    onClick={() => handleStatus(_id, "rejected")}
+                                                    onClick={() => handleStatus(app._id, "rejected")}
                                                     className="px-4 py-2 text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg transition"
                                                 >
                                                     ✕ Reject
