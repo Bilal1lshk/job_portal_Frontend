@@ -25,6 +25,7 @@ export default function Edittab() {
         skills: user?.profile?.skills || "",
 
     })
+    console.log(input)
     const dispatch = useDispatch()
 
     function onvaluechange(e) {
@@ -36,6 +37,7 @@ export default function Edittab() {
         const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
             withCredentials: true,
         })
+        console.log(onformsubmit)
         dispatch(Setuservalue(response.data.user))
 
 

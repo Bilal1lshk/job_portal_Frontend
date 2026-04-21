@@ -12,7 +12,6 @@ import { Button } from '../../components/ui/button.jsx';
 export default function Profile() {
   const [open, setopen] = useState(false)
   const user = useSelector(store => store?.Setuser?.user)
-  console.log(user)
 
   const skillsArray = user?.profile?.skills?.split(",")
 
