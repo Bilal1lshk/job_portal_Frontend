@@ -25,8 +25,19 @@ export default function Edittab() {
         skills: user?.profile?.skills || "",
 
     })
-    console.log(input)
+    const [isLoading, setisLoading] = useState(false)
+    const [open, setopen] = useState(false)
     const dispatch = useDispatch()
+
+    // Sync input when user data changes
+    useEffect(() => {
+        setinput({
+            fullname: user?.fullname || "",
+            email: user?.email || "",
+            Phonenumber: user?.Phonenumber || "",
+            skills: user?.profile?.skills || "",
+        })
+    }, [user])
 
     function onvaluechange(e) {
         setinput({ ...input, [e.target.name]: e.target.value })
@@ -34,16 +45,22 @@ export default function Edittab() {
     }
     const onformsubmit = async (e) => {
         e.preventDefault()
-        const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
-            withCredentials: true,
-        })
-        console.log(onformsubmit)
-        dispatch(Setuservalue(response.data.user))
-
-
+        setisLoading(true)
+        try {
+            const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
+                withCredentials: true,
+            })
+            console.log(response)
+            dispatch(Setuservalue(response.data.user))
+            setopen(false) // Close dialog after successful update
+        } catch (error) {
+            console.error("Error updating profile:", error)
+        } finally {
+            setisLoading(false)
+        }
     }
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setopen}>
             <DialogTrigger className="p-2 rounded-full hover:bg-gray-200 transition">
                 <PencilOff size={18} />
             </DialogTrigger>
@@ -112,13 +129,13 @@ export default function Edittab() {
                                 />
                             </div>
 
-                            <DialogClose
+                            <button
                                 type="submit"
-                                asChild
-                                className="mt-3 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                                disabled={isLoading}
+                                className="mt-3 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition disabled:bg-gray-400"
                             >
-                                <Button>Save Changes</Button>
-                            </DialogClose>
+                                {isLoading ? "Saving..." : "Save Changes"}
+                            </button>
                             <DialogClose asChild>
                                 <Button variant="outline">Cancel</Button>
                             </DialogClose>
