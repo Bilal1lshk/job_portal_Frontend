@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/resuable/navbar.jsx'
 import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis } from 'lucide-react';
 
@@ -12,15 +12,9 @@ import { Button } from '../../components/ui/button.jsx';
 export default function Profile() {
   const [open, setopen] = useState(false)
   const user = useSelector(store => store?.Setuser?.user)
-  console.log('userfromprofile', user)
-  console.log('Profile component re-rendered')
-
-  useEffect(() => {
-    console.log('User data changed in Profile:', user)
-  }, [user])
+  console.log("useriprofile", user)
 
   const skillsArray = user?.profile?.skills?.split(",")
-  console.log('skillsArray:', skillsArray)
 
 
   return (
@@ -56,19 +50,19 @@ export default function Profile() {
             </div>
           </div>
           <div>
-           {
-            Array.isArray(skillsArray) && skillsArray.length > 0 ? (<div  className='flex md:flex-row flex-col  md:pl-3  pt-2  justify-center items-center md:jutify-between md:items-center md:gap-3.5'>
-              <ChevronsLeftRightEllipsis />
-              <div className='flex items-start md:gap-3.5 px-4'>
-                {
-                  skillsArray.map((skill,i) => (
+            {
+              Array.isArray(skillsArray) && skillsArray.length > 0 ? (<div className='flex md:flex-row flex-col  md:pl-3  pt-2  justify-center items-center md:jutify-between md:items-center md:gap-3.5'>
+                <ChevronsLeftRightEllipsis />
+                <div className='flex items-start md:gap-3.5 px-4'>
+                  {
+                    skillsArray.map((skill, i) => (
 
                       <Button variant="ghost" className='text-xl' key={i}>{skill}</Button>
-                  ))
-                }
-              </div>
-            </div>):(<p className='text-red-100 text-2xl font semibold'>no skills avalaible</p>)
-           } 
+                    ))
+                  }
+                </div>
+              </div>) : (<p className='text-red-100 text-2xl font semibold'>no skills avalaible</p>)
+            }
           </div>
 
           <div className='w-[50%] mx-auto'>

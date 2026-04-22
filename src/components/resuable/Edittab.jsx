@@ -16,7 +16,7 @@ import { Secret_api_key } from "../../Constants/keys";
 import { Setuservalue } from "../../redux/Setuser";
 import { Button } from "../ui/button";
 
-export default function Edittab({ open: propOpen, setopen: propSetopen }) {
+export default function Edittab() {
     const user = useSelector(store => store.Setuser.user);
     const [input, setinput] = useState({
         fullname: user?.fullname || "",
@@ -26,11 +26,7 @@ export default function Edittab({ open: propOpen, setopen: propSetopen }) {
 
     })
     const [isLoading, setisLoading] = useState(false)
-    const [localOpen, setLocalOpen] = useState(false)
-    
-    // Use props if provided, otherwise use local state
-    const open = propOpen !== undefined ? propOpen : localOpen
-    const setopen = propSetopen || setLocalOpen
+    const [open, setopen] = useState(false)
     const dispatch = useDispatch()
 
     // Sync input when user data changes
@@ -50,15 +46,14 @@ export default function Edittab({ open: propOpen, setopen: propSetopen }) {
     const onformsubmit = async (e) => {
         e.preventDefault()
         setisLoading(true)
-        console.log('Submitting form with data:', input)
         try {
             const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
                 withCredentials: true,
             })
-            console.log('API Response:', response)
-            console.log('User data from response:', response.data.user)
-            dispatch(Setuservalue(response.data.user))
-            console.log('Dispatched Setuservalue action')
+            console.log("response",response)
+            const dispatced = dispatch(Setuservalue(response.data.user))
+            console.log("dispatched",dispatced)
+
             setopen(false) // Close dialog after successful update
         } catch (error) {
             console.error("Error updating profile:", error)
@@ -139,6 +134,7 @@ export default function Edittab({ open: propOpen, setopen: propSetopen }) {
                             <button
                                 type="submit"
                                 disabled={isLoading}
+                                onClick={() => setopen(false)} 
                                 className="mt-3 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition disabled:bg-gray-400"
                             >
                                 {isLoading ? "Saving..." : "Save Changes"}
