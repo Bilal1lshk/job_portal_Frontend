@@ -19,3 +19,4 @@ const Applicantslice = createSlice({
 })
 export const { setaaplicantvalue, allapplicationssatatus } = Applicantslice.actions
 export default Applicantslice.reducer
+

@@ -17,3 +17,4 @@ const companyslice = createSlice({
 })
 export const { setallcompany, setsinglecompany } = companyslice.actions
 export default companyslice.reducer
+

@@ -50,9 +50,7 @@ export default function Edittab() {
             const response = await axios.post(`${Secret_api_key}/user/profile/update`, input, {
                 withCredentials: true,
             })
-            console.log("response",response)
             const dispatced = dispatch(Setuservalue(response.data.user))
-            console.log("dispatched",dispatced)
 
             setopen(false) // Close dialog after successful update
         } catch (error) {
@@ -134,7 +132,7 @@ export default function Edittab() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                onClick={() => setopen(false)} 
+                                onClick={() => setopen(false)}
                                 className="mt-3 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition disabled:bg-gray-400"
                             >
                                 {isLoading ? "Saving..." : "Save Changes"}
@@ -151,3 +149,4 @@ export default function Edittab() {
         </Dialog>
     )
 }
+

@@ -17,3 +17,4 @@ const postslice = createSlice({
 })
 export const { Setallposts,SetSinglepost } = postslice.actions
 export default postslice.reducer
+

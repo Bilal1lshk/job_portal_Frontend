@@ -15,7 +15,6 @@ export default function Detailpost() {
                 const response = await axios.get(`${Secret_admin_posts_keys}/posts/${id}`, {
                     withCredentials: true
                 })
-                console.log("data", response)
                 setpostdata(response?.data?.singlepost)
             } catch (error) {
                 console.error("Detailpost fetch failed:", error)
@@ -64,3 +63,5 @@ export default function Detailpost() {
         </>
     );
 }
+
+

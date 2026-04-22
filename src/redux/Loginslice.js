@@ -13,3 +13,4 @@ export const counterslice = createSlice({
 })
 export const { changeloading } = counterslice.actions
 export default counterslice.reducer
+

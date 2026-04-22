@@ -16,3 +16,5 @@ export default function Labelandinput({ label, inputtext, input, change }) {
 
     )
 }
+
+

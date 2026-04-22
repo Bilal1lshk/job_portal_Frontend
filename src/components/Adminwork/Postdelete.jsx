@@ -25,7 +25,6 @@ export default function Postdelete() {
         const response = await axios.get(`${Secret_admin_posts_keys}/delete/${id}`, {
             withCredentials: true
         })
-        console.log(response,"response")
         if (!response) {
             return toast.message("Cannot create a message")
         }
@@ -67,3 +66,5 @@ export default function Postdelete() {
 
     )
 }
+
+

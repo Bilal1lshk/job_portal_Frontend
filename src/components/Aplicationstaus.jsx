@@ -16,13 +16,11 @@ import { allapplicationssatatus } from '../redux/Applicants';
 export default function Aplicationstaus() {
     const dispatch = useDispatch()
     const statuses = useSelector(store => store?.applicant?.applicationsattus)
-    console.log(status)
     useEffect(() => {
         async function applicationstatus() {
             const alldata = await axios.get(`${Secret_admin_application_key}/get`, {
                 withCredentials: true
             })
-            console.log(alldata)
             dispatch(allapplicationssatatus(alldata?.data?.appliedjobs))
         }
         applicationstatus()
@@ -65,3 +63,5 @@ export default function Aplicationstaus() {
         </div >
     )
 }
+
+

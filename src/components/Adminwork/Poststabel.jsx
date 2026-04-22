@@ -22,11 +22,12 @@ export default function PostsTabel() {
     const dispatch = useDispatch()
     useEffect(() => {
         const getallcompanydata = async () => {
-            const allcompany = await axios.get(`${Secret_admin_posts_keys}/Allposts`,
+            const allcompany = await axios.get(`${Secret_admin_posts_keys}/adminposts`,
                 {
                     withCredentials: true
                 }
             )
+            return 
             toast.message(allcompany?.data?.message)
             dispatch(Setallposts(allcompany?.data?.allPosts))
         }
@@ -76,3 +77,5 @@ export default function PostsTabel() {
         </div>
     )
 }
+
+

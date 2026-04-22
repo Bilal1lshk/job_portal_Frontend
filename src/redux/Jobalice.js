@@ -21,3 +21,4 @@ export const jobslice = createSlice({
 })
 export const { setalljobs, setajob ,setadminjobs} = jobslice.actions
 export default jobslice.reducer
+

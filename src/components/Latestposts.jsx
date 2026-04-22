@@ -21,10 +21,6 @@ export default function Latestposts() {
 
 
     }, [])
-    console.log(allposts)
-
-
-
     return (
         <div className='h-full w-[80%] mx-auto mt-14 mb-2'>
 
@@ -52,3 +48,5 @@ export default function Latestposts() {
         </div>
     )
 }
+
+

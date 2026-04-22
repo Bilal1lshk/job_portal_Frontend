@@ -26,7 +26,6 @@ export default function AdminPostsCreate() {
             const response = await axios.post(`${Secret_admin_posts_keys}/register`, input, {
                 withCredentials: true
             })
-            console.log(response)
             toast.success(response.data.message)
             if (response) {
                 navigate('/admin/posts')
@@ -94,3 +93,4 @@ export default function AdminPostsCreate() {
         </div>
     )
 }
+

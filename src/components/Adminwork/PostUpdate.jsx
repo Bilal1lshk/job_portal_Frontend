@@ -20,7 +20,6 @@ export default function PostUpdate() {
         const response = await axios.post(`${Secret_admin_posts_keys}/updated/${id}`, formdata, {
             withCredentials: true
         })
-        console.log(response.data.updatedposts)
         if (response.data.succes) {
             navigate("/admin/posts")
         }
@@ -90,3 +89,5 @@ export default function PostUpdate() {
         </div>
     )
 }
+
+

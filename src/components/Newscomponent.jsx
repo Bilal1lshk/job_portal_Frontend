@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Newscomponent({ post}) {
-    console.log(post)
-const postid=post?._id
+    const postid=post?._id
     return (
         <div className="w-full max-w-auto flex flex-wrap mx-auto">
             <Link to={`/posts/${postid}`}>
@@ -31,3 +30,4 @@ const postid=post?._id
         </div>
     )
 }
+
