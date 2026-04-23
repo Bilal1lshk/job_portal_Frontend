@@ -27,7 +27,6 @@ export default function PostsTabel() {
                     withCredentials: true
                 }
             )
-            return console.log(allcompany?.data?.userposts)
             toast.message(allcompany?.data?.message)
             dispatch(SetAdminposts(allcompany?.data?.userposts))
         }
@@ -37,7 +36,6 @@ export default function PostsTabel() {
     }, [])
 
     const allcompany = useSelector(store => store?.postsdata?.adminposts)
-    console.log("Storedvalue",allcompany)
     return (
         <div className='h-auto w-full'>
             <div className='flex w-[80%] mx-auto mt-6 '>

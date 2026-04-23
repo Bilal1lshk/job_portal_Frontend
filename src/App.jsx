@@ -1,4 +1,5 @@
-
+import AOS from 'aos'        // ✅ top level
+import 'aos/dist/aos.css'
 import { useSelector } from 'react-redux'
 import Home from './pages/home/Home.jsx'
 import { Routes, Route } from 'react-router-dom'
@@ -23,9 +24,14 @@ import AdminPostsCreate from './components/Adminwork/Adminpostcreate.jsx'
 import PostUpdate from './components/Adminwork/PostUpdate.jsx'
 import Postdelete from './components/Adminwork/Postdelete.jsx'
 import Detailpost from './components/Adminwork/Detailpost.jsx'
+import { useEffect } from 'react'
 
 function App() {
   const user = useSelector(store => store?.Setuser?.user)
+
+  useEffect(() => {
+    AOS.init({ duration: 800 })  // initialize here instead
+  }, [])
 
   return (
     <>
@@ -54,7 +60,7 @@ function App() {
         <Route path='/admin/companies/update/:id' element={<Updatecompany />} />
 
         {/* posts works */}
-        <Route path='/admin/posts' element={<AdminPosts/>}></Route>
+        <Route path='/admin/posts' element={<AdminPosts />}></Route>
         <Route path='/posts/:id' element={<Detailpost />} />
         <Route path='/admin/posts/create' element={<AdminPostsCreate />} />
         <Route path="/admin/posts/update/:id" element={<PostUpdate />}></Route>

@@ -28,7 +28,7 @@ export default function Latestjobs() {
         <div className='text-4xl flex justify-center h-full w-full mb-5'>
           <h2 className='text-[#0D1A63] font-medium tracking-wider'>Latest Job Openings</h2>
         </div>
-        <div className='flex h-full w-[95%] p-2 mx-auto flex-wrap  justify-evenly gap-8'>
+        <div  data-aos="fade-up-right" className='flex h-full w-[95%] p-2 mx-auto flex-wrap  justify-evenly gap-8'>
           {
             Array.isArray(Alljobs) && Alljobs.length > 0 ? Alljobs.slice(0, 4).map((job, i) => {
               return (

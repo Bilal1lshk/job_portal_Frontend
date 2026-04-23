@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Job({ job }) {
     return (
         <Link to={`/jobs/${job._id}`}>
-            <div className='min-w-[30%]  shadow-md rounded-sm py-4 px-2 '>
+            <div  data-aos="fade-up-right" className='min-w-[30%]  shadow-md rounded-sm py-4 px-2 '>
                 <div>
                     <h1>{job?.company?.name}</h1>
                     <p>{job?.company?.description}</p>

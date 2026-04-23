@@ -33,7 +33,9 @@ export default function Latestposts() {
             </div>
             <div className="newscontainer flex  mx-auto">
 
-                <div className='flex flex-col  w-[80%] flex-wrap justify-between mt-14 gap-2'>
+                <div data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500" className='flex flex-col  w-[80%] flex-wrap justify-between mt-14 gap-2'>
                     {
                         Array.isArray(allposts) && allposts.map((post) => {
                             return (
