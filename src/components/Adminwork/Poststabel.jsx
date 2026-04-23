@@ -13,7 +13,7 @@ import { Delete, DeleteIcon, Edit2, LucideDelete } from 'lucide-react'
 import axios, { all } from 'axios'
 import { Secret_admin_posts_keys } from '../../Constants/keys.js'
 import { useDispatch, useSelector } from 'react-redux'
-import { Setallposts } from "../../redux/postslice.js"
+import { SetAdminposts, Setallposts } from "../../redux/postslice.js"
 import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
 
@@ -27,16 +27,17 @@ export default function PostsTabel() {
                     withCredentials: true
                 }
             )
-            return console.log(allcompany)
+            return console.log(allcompany?.data?.userposts)
             toast.message(allcompany?.data?.message)
-            dispatch(Setallposts(allcompany?.data?.allPosts))
+            dispatch(SetAdminposts(allcompany?.data?.userposts))
         }
         getallcompanydata()
 
 
     }, [])
 
-    const allcompany = useSelector(store => store?.postsdata?.allposts)
+    const allcompany = useSelector(store => store?.postsdata?.adminposts)
+    console.log("Storedvalue",allcompany)
     return (
         <div className='h-auto w-full'>
             <div className='flex w-[80%] mx-auto mt-6 '>
