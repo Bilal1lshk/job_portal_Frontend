@@ -27,7 +27,7 @@ export default function PostsTabel() {
                     withCredentials: true
                 }
             )
-            return 
+            return console.log(allcompany)
             toast.message(allcompany?.data?.message)
             dispatch(Setallposts(allcompany?.data?.allPosts))
         }
