@@ -27,14 +27,12 @@ export default function Jobtabel() {
                 const response = await axios.get(`${Secret_admin_Jobs_keys}adminposts`, {
                     withCredentials: true
                 })
-                console.log(reposne)
-                dispatch(setadminjobs(response?.data?.adminposts))
+                dispatch(setadminjobs(response?.data))
 
             }
             gettingadminjobs()
         } catch (err) {
             toast.error(err.message)
-            console.log(err)
         }
     }, [])
     const alladminjobs = useSelector(store => store.jobdata.adminjobs)
@@ -61,7 +59,6 @@ export default function Jobtabel() {
                     Array.isArray(alladminjobs) && alladminjobs.map((res) => {
                         const id = res._id
                         return (
-                            <>
                                 <TableRow key={id} >
 
 
@@ -76,7 +73,7 @@ export default function Jobtabel() {
 
                                 </TableRow>
 
-                            </>
+                            
 
                         )
                     })

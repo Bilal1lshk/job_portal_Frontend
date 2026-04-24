@@ -7,7 +7,7 @@ import { setaaplicantvalue } from '../redux/Applicants'
 
 export default function ViewApplicants() {
     const params = useParams()
-    const id = params.id
+    const id = params?.id
     const dispatch = useDispatch()
     const getjob = async () => {
         try {
@@ -15,6 +15,7 @@ export default function ViewApplicants() {
                 withCredentials: true
             })
             dispatch(setaaplicantvalue(response?.data))
+            console.log(response)
         } catch (error) {
         }
     }
@@ -23,8 +24,9 @@ export default function ViewApplicants() {
         getjob()
     }, [id])
     const applicant = useSelector(store => store.applicant.applicantvalue)
+    console.log("applicant",applicant)
     const applicantdata = applicant?.application
-
+console.log("applicantdata",applicantdata)
     return (
 
         <div className="min-h-screen bg-gray-50 py-10 px-4">
@@ -45,7 +47,7 @@ export default function ViewApplicants() {
                         Array.isArray(applicantdata) && applicantdata.map((app, i) => {
                             return (
                                 <div
-                                    key={app._id}
+                                    key={app?._id}
                                     className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
                                 >
                                     {/* Top row */}
@@ -68,7 +70,7 @@ export default function ViewApplicants() {
                                             <p className="text-xs text-gray-400">
                                                 Applied for: <span className="text-blue-500 font-semibold">{app.applicant?.title}</span>
                                                 <span className="mx-2 text-gray-300">·</span>
-                                                {app?.updatedAt.split('T')[0]}
+                                                {app?.updatedAt}
                                             </p>
                                         </div>
 
@@ -108,7 +110,7 @@ export default function ViewApplicants() {
                                         </div>
                                         <div>
                                             <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Applied On</p>
-                                            <p className="text-sm text-gray-700 font-medium">{app?.updatedAt.split('T')[0]}</p>
+                                            <p className="text-sm text-gray-700 font-medium">{app?.updatedAt}</p>
                                         </div>
                                     </div>
 

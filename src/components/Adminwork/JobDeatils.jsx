@@ -9,7 +9,7 @@ export default function JobDeatils({ response }) {
                 <h1 className='text-2xl text-[#0A1628] font-medium p-1'>{response?.title}</h1>
                 <div className='p-2  flex flex-col md:flex-row  gap-3'>
                     <Button>Edit jobs</Button>
-                    <Button><Link to={`/admin/job/description/applications/${response._id}`}>View Applicants</Link></Button>
+                    <Button><Link to={`/admin/job/description/applications/${response?._id}`}>View Applicants</Link></Button>
 
                 </div>
 

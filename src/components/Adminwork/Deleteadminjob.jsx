@@ -14,13 +14,14 @@ import {
 import { Button } from '../ui/button'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Secret_admin_Jobs_keys} from '../../Constants/keys'
+import { Secret_admin_Jobs_keys } from '../../Constants/keys'
 import { toast } from 'sonner'
 export default function Deleteadminjob() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const params = useParams()
     const handlesubmit = async () => {
         const id = params.id
+        console.log(id)
         const response = await axios.get(`${Secret_admin_Jobs_keys}deletejob/${id}`, {
             withCredentials: true
         })
