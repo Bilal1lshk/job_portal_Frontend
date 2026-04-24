@@ -27,12 +27,14 @@ export default function Jobtabel() {
                 const response = await axios.get(`${Secret_admin_Jobs_keys}adminposts`, {
                     withCredentials: true
                 })
+                console.log(reposne)
                 dispatch(setadminjobs(response?.data?.adminposts))
 
             }
             gettingadminjobs()
         } catch (err) {
             toast.error(err.message)
+            console.log(err)
         }
     }, [])
     const alladminjobs = useSelector(store => store.jobdata.adminjobs)
