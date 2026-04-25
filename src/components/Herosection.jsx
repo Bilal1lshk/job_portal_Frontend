@@ -16,7 +16,7 @@ export default function Herosection() {
         </motion.div>
       </div>
       <motion.div className='w-full md:w-[50%]'
-        animate={{ x: [200, 0], rotate: [100, 0], opacity: [0, 1] }}
+        animate={{ x: [200, 0], opacity: [0, 1] }}
         transition={{ duration: 0.8, delay: 1.2, ease: "easeIn" }}
         whileInView={{ scale: 1.05 }}
       >
