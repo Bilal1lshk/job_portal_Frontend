@@ -16,6 +16,7 @@ export default function ViewApplicants() {
             const response = await axios.get(`${Secret_admin_application_key}/applicant/${id}`, {
                 withCredentials: true
             })
+            console.log(response)
             const data = response?.data?.job.map((o) => o)
             dispatch(setaaplicantvalue(data))
         } catch (error) {
@@ -26,16 +27,16 @@ export default function ViewApplicants() {
         id: ""
     })
     const statusid = status?.id
-    async function updateapplication(id,statusvalue) {
-        const data = await axios.post(`${Secret_admin_application_key}/update/${id}`, {status:statusvalue,id}, {
+    async function updateapplication(id, statusvalue) {
+        const data = await axios.post(`${Secret_admin_application_key}/update/${id}`, { status: statusvalue, id }, {
             withCredentials: true,
         })
         console.log(data?.data?.message)
-        const value=data?.data?.message
+        const value = data?.data?.message
 
         toast.message(value)
         setTimeout(() => {
-                window.location.reload()
+            window.location.reload()
 
         }, 4000);
     }
@@ -120,7 +121,7 @@ export default function ViewApplicants() {
                                     <button
                                         onClick={() => {
                                             setstatus({ status: "Rejected", id: app?._id });
-                                             updateapplication(app._id, "Rejected")
+                                            updateapplication(app._id, "Rejected")
                                         }}
                                         className="px-4 py-2 text-sm font-semibold text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg transition"
                                     >

@@ -25,8 +25,9 @@ export default function Postdelete() {
         const response = await axios.get(`${Secret_admin_posts_keys}/delete/${id}`, {
             withCredentials: true
         })
+        console.log(response)
         if (!response) {
-            return toast.message("Cannot create a message")
+            return toast.message("Cannot delte a post")
         }
         toast.success(response.data.message)
         navigate("/admin/posts")

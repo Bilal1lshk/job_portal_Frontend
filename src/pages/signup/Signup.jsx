@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Secret_api_key } from "../../Constants/keys.js"
 import axios from 'axios'
 import { toast } from 'sonner'
+import image from "../../../public/Login.png"
 export default function Signup() {
     const navigate = useNavigate()
     const [input, setinput] = useState({
@@ -50,60 +51,120 @@ export default function Signup() {
         }
 
     }
-    return (
-        <>
-            <div className='h-screen w-full bg-[#97D2FB]'>
-                <form onSubmit={formsubmit} className='flex flex-col items-center  gap-4'>
-                    <h1 className='text-4xl font-bold'>Signup Your Account </h1>
-                    <div className='flex  w-full'><Labelandinput input={input} change={changeeventhandeler} label={"email"} inputtext={"email"} />
-                        <Labelandinput input={input} change={changeeventhandeler} label={"fullname"} inputtext={"fullname"} /></div>
+   return (
+    <div className='min-h-screen w-full relative overflow-hidden'>
+        {/* Background image */}
+        <img
+            src={image}
+            className="h-full w-full object-fit absolute inset-0"
+            alt=""
+        />
 
-                    <Labelandinput input={input} change={changeeventhandeler} label={"Phonenumber"} inputtext={"Phonenumber"} />
-                    <div className='bg-[#E1EFF6] rounded-md  mx-auto w-[30%] h-auto p-1'>
-                        <div className='flex item-start justify-around h-[60px]'>
-                            <label className='text-md uppercase flex  items-center gap-2'>
-                                <input
-                                    onChange={changeeventhandeler}
-                                    type="radio"
-                                    name='role'
-                                    value='student'
-                                />
-                                Student
-                            </label>
+        {/* Dark overlay */}
+        <div className='absolute inset-0 bg-black/40' />
 
-                            <label className='text-md uppercase flex items-center gap-2'>
-                                <input
-                                    onChange={changeeventhandeler}
-                                    type="radio"
-                                    name='role'
-                                    value='recruiter'
-                                />
-                                Recruiter
-                            </label>
+        {/* Centered card */}
+        <div className='absolute inset-0 flex items-center justify-center px-1  py-10'>
+            <form
+                onSubmit={formsubmit}
+                className='
+                    backdrop-blur-md
+                    bg-white/20
+                    border border-white/30
+                    rounded-2xl
+                    p-8
+                    flex flex-col
+                    gap-3
+                    w-full max-w-lg
+                    shadow-2xl
+                '
+            >
+                {/* Title */}
+                <div className='text-center mb-2'>
+                    <h1 className='text-3xl font-bold text-white'>Create Account</h1>
+                    <p className='text-white/60 text-sm mt-1'>Sign up to get started</p>
+                </div>
 
-                        </div>
+                {/* Email + Fullname row */}
+                <div className='flex flex-col sm:flex-row gap-4'>
+                    <Labelandinput input={input} change={changeeventhandeler} label={"email"} inputtext={"email"} />
+                    <Labelandinput input={input} change={changeeventhandeler} label={"fullname"} inputtext={"text"} />
+                </div>
 
+                {/* Phone */}
+                <Labelandinput input={input} change={changeeventhandeler} label={"Phonenumber"} inputtext={"text"} />
 
+                {/* Password */}
+                <Labelandinput input={input} change={changeeventhandeler} label={"password"} inputtext={"password"} />
 
+                {/* Role */}
+                <div className='flex flex-col gap-2'>
+                    <label className='text-xs font-semibold uppercase tracking-widest text-white/70'>
+                        Role
+                    </label>
+                    <div className='flex gap-6'>
+                        <label className='flex items-center gap-2 text-white text-sm cursor-pointer'>
+                            <input
+                                onChange={changeeventhandeler}
+                                type="radio"
+                                name='role'
+                                value='student'
+                                className='accent-white w-4 h-4'
+                            />
+                            Student
+                        </label>
+                        <label className='flex items-center gap-2 text-white text-sm cursor-pointer'>
+                            <input
+                                onChange={changeeventhandeler}
+                                type="radio"
+                                name='role'
+                                value='recruiter'
+                                className='accent-white w-4 h-4'
+                            />
+                            Recruiter
+                        </label>
                     </div>
-                    <Labelandinput input={input} change={changeeventhandeler} label={"password"} inputtext={"password"} />
+                </div>
 
-                    <div className='bg-[#E1EFF6] rounded-md  mx-auto w-[30%] h-auto p-1'>
-                        <div className='flex flex-col h-[60px]'>
-                            <input type="file" name="file" onChange={changefilehandeler} className=' bg-[#97D2FB] outline-hidden rounded-sm h-[30px]' /></div>
+                {/* Profile photo */}
+                <div className='flex flex-col gap-2'>
+                    <label className='text-xs font-semibold uppercase tracking-widest text-white/70'>
+                        Profile Photo
+                    </label>
+                    <input
+                        type="file"
+                        name="file"
+                        accept="image/*"
+                        onChange={changefilehandeler}
+                        className='
+                            text-sm text-white/70
+                            file:mr-3 file:py-2 file:px-4
+                            file:rounded-xl file:border-0
+                            file:text-sm file:font-medium
+                            file:bg-white/20 file:text-white
+                            file:cursor-pointer
+                            hover:file:bg-white/30
+                            cursor-pointer
+                        '
+                    />
+                </div>
 
+                {/* Submit */}
+                <Button type="submit" className='w-full mt-2'>
+                    Create Account
+                </Button>
 
-
-                    </div>
-                    <p>
-                        Already have an account
-                    </p>
-                    <Link to="/login"><p className='text-[#0000EE] -mt-3.5'>?Login</p></Link>
-                    <Button type="submit">Submit</Button>
-                </form>
-            </div>
-        </>
-    )
+                {/* Login link */}
+                <p className='text-center text-white/60 text-sm'>
+                    Already have an account?{' '}
+                    <Link to="/login" className='text-white font-semibold hover:underline'>
+                        Login
+                    </Link>
+                </p>
+            </form>
+        </div>
+    </div>
+)
 }
 
 

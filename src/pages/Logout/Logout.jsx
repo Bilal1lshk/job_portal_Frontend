@@ -35,7 +35,7 @@ export default function Logout() {
     return (
         <div className={"bg-red-300  min-h-screen min-w-screen"}>
             <Dialog >
-                <DialogTrigger className="text-4xl text-amber-300  h-full w-full ">
+                <DialogTrigger className="text-xl md:text-4xl text-amber-300  h-full w-full ">
                     <div className=' flex items-center justify-center pt-[200px]  shadow-accent-foreground '><p className='bg-red-700 px-2 py-3 rounded-xl'>Logout Your account</p></div></DialogTrigger>
                 <DialogContent>
                     <DialogHeader>

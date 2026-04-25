@@ -60,7 +60,7 @@ export default function Navbar() {
                                 )
                         }
                         {!user ? (
-                            <div className='h-full  flex items-center justify-center pr-10 gap-4'>
+                            <div className='h-full w-full  flex   justify-center items-end flex-col md:flex-row pr-10 gap-4'>
                                 <Link to={"/login"}><Button className={"p-5"}>Login</Button></Link>
                                 <Link to="/signup"><Button className={"p-5"}>Signup</Button></Link>
                             </div>

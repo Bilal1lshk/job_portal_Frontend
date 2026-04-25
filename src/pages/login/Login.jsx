@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeloading } from '../../redux/Loginslice.js'
 import { useNavigate } from 'react-router-dom'
 import { Setuservalue } from '../../redux/Setuser.js'
+import loginimage from "../../../public/Login.png"
 export default function Login() {
   const navigate = useNavigate()
   const loadingvalue = useSelector((state) => state.auth.loading);
@@ -42,15 +43,31 @@ export default function Login() {
     }
   }
   return (
-    <div className='h-screen w-full bg-[#97D2FB]'>
-      <form onSubmit={formsubmit} className='flex flex-col items-center  gap-4'>
-        <h1 className='text-4xl font-bold'>Login Your Account </h1>
-        <Labelandinput input={input} change={changeeventhandeler} label={"email"} inputtext={"email"} />
-        <Labelandinput input={input} change={changeeventhandeler} label={"password"} inputtext={"password"} />
-        {
-          loadingvalue ? <Button className={""}>loading...</Button> : <Button type="submit">Login</Button>}
-      </form>
+    <div className='h-screen w-full bg-[#97D2FB] relative'>
+    <img src={loginimage} className="h-full w-full object-fit absolute inset-0" alt="" />
+    
+    {/* centered form */}
+    <div className='absolute inset-0 flex items-center justify-center'>
+        <form onSubmit={formsubmit} className='bg-blue-300  backdrop-blur-md 
+            bg-white/20 
+            border border-white/30 
+            rounded-2xl 
+            p-8 
+            flex flex-col 
+            gap-4 
+            w-[90%] max-w-md 
+            shadow-2xl'>
+            <h1 className='text-4xl font-bold text-[#ADD8E6]'>Login Your Account</h1>
+            <Labelandinput input={input} change={changeeventhandeler} label={"email"} inputtext={"email"} />
+            <Labelandinput input={input} change={changeeventhandeler} label={"password"} inputtext={"password"} />
+            {loadingvalue 
+                ? <Button>Loading...</Button> 
+                : <Button type="submit">Login</Button>
+            }
+        </form>
     </div>
+</div>
+
   )
 }
 

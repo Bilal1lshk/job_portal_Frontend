@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 export default function Job({ job }) {
     return (
         <Link to={`/jobs/${job._id}`}>
-            <div  data-aos="fade-up-right" className='min-w-[30%]  shadow-md rounded-sm py-4 px-2 '>
+            <div  data-aos="fade-up-right" className='min-w-[30%]  shadow-md rounded-sm py-4 px-2 flex flex-col flex-wrap '>
                 <div>
                     <h1>{job?.company?.name}</h1>
                     <p>{job?.company?.description}</p>
                 </div>
                 <div>
                     <h4>{job?.title}</h4>
-                    <h5>{job?.description.slice(0, 50)}</h5>
+                    <h5>{job?.description.slice(0, 40)}</h5>
                 </div>
                 <div>
                     <p>Job requirements:</p>
