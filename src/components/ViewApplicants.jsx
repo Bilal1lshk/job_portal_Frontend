@@ -49,7 +49,6 @@ export default function ViewApplicants() {
 
 
 
-
     return (
         <div className="max-w-3xl mx-auto px-4 py-8">
 
@@ -61,7 +60,7 @@ export default function ViewApplicants() {
             </div>
 
             <div className="flex flex-col gap-4">
-                {applicant?.map(app => (
+                {Array.isArray(applicant) && applicant?.map(app => (
                     <div
                         key={app._id}
                         className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
