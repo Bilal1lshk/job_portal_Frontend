@@ -1,33 +1,43 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Newscomponent({ post}) {
-    const postid=post?._id
+export default function Newscomponent({ post }) {
+    const postid = post?._id
+
     return (
-        <div className="min-w-full  flex flex-wrap mx-auto">
-            <Link to={`/posts/${postid}`}>
-                
-                <div className="h-[150px] w-[500px] rounded-xl shadow-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-4 text-white flex flex-col justify-between">
+        <Link to={`/posts/${postid}`} className='w-full sm:w-[48%] lg:w-[71%]'>
+            <div className='
+                w-full h-full
+                bg-gray-800
+                hover:bg-gray-700
+                hover:shadow-xl
+                hover:-translate-y-1
+                transition-all duration-200
+                rounded-2xl
+                p-5
+                flex flex-col gap-3
+                cursor-pointer
+            '>
+                {/* Source */}
+                <p className='text-xs text-gray-400 uppercase tracking-widest font-semibold'>
+                    📰 News · Unknown
+                </p>
 
-                    {/* Header */}
-                    <div className="text-xs sm:text-sm text-gray-300 mb-2">
-                        News From unknown
-                    </div>
+                {/* Title */}
+                <h2 className='text-sm sm:text-base font-semibold text-white line-clamp-2 leading-snug'>
+                    {post?.title}
+                </h2>
 
-                    {/* Title */}
-                    <div className="text-base sm:text-lg md:text-xl font-semibold mb-2 line-clamp-2">
-                        {post?.title}...
-                    </div>
+                {/* Description */}
+                <p className='text-xs text-gray-400 line-clamp-3 leading-relaxed'>
+                    {post?.Description}
+                </p>
 
-                    {/* Description */}
-                    <div className="text-sm sm:text-base text-gray-200">
-                        {post?.Description?.slice(0, 100)}...
-                    </div>
-
-                </div>
-
-            </Link>
-        </div>
+                {/* Read more */}
+                <p className='text-xs text-blue-400 font-medium mt-auto'>
+                    Read more →
+                </p>
+            </div>
+        </Link>
     )
 }
-

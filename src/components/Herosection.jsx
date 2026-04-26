@@ -20,7 +20,7 @@ export default function Herosection() {
         transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
         whileInView={{ scale: 1.05 }}
       >
-        <img className='rounded-sm object-cover' src={heroimg} alt="" />
+        <img className='rounded-sm object-cover z-1' src={heroimg} alt="" />
       </motion.div>
     </div>
   )

@@ -35,7 +35,7 @@ export default function Latestposts() {
 
                 <div data-aos="fade-down"
                     data-aos-easing="linear"
-                    data-aos-duration="1500" className='flex flex-col  w-[80%] flex-wrap justify-between mt-14 gap-2'>
+                    data-aos-duration="1500" className='flex flex-col  w-[80%] justify-center items-center mt-14 gap-2'>
                     {
                         Array.isArray(allposts) && allposts.map((post) => {
                             return (

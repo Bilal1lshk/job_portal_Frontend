@@ -26,9 +26,9 @@ export default function Navbar() {
     return (
         <div
             data-aos="zoom-in-right"
-             className='h-[100px] w-full bg-white px-3.5'>
+             className='h-[100px] w-full bg-white px-3.5   z-30'>
 
-            <div className={`min-h-screen w-[60%] ${mobilenav ? "" : "hidden"} z-40 flex  justify-end absolute -left-3  bg-blue-200`}>
+            <div className={`min-h-screen w-[60%] ${mobilenav ? "" : "hidden"} z-20 flex  md:hidden justify-end absolute -left-3  bg-blue-400`}>
                 <div className='w-full h-full'>
                     <div className='flex  h-auto justify-end items-start min-w-[99%]    '>
                         <X onClick={mobilenavclose} className='text-3xl ' size={34} />

@@ -29,8 +29,8 @@ export default function Detailpost() {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen flex items-center justify-center bg-amber-50 px-4 py-10">
-                <div className="bg-white max-w-2xl w-full rounded-sm shadow-md border border-amber-200 px-12 py-10">
+            <div className="min-h-screen flex items-center justify-center bg-blue-200 px-4 py-10">
+                <div className="bg-white max-w-2xl w-full rounded-sm shadow-md border border-blue-200 px-12 py-10">
 
                     {/* Title */}
                     <h1 className="text-3xl font-bold text-stone-900 leading-snug mb-7 tracking-tight">
@@ -39,7 +39,7 @@ export default function Detailpost() {
 
                     {/* Author Row */}
                     <div className="flex items-center gap-3 mb-7">
-                        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-amber-500 to-amber-800 text-white flex items-center justify-center text-sm font-bold font-mono shrink-0">
+                        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 text-white flex items-center justify-center text-sm font-bold font-mono shrink-0">
                         </div>
                         <div className="flex flex-col gap-0.5">
 
