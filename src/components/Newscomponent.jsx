@@ -7,7 +7,7 @@ export default function Newscomponent({ post }) {
     return (
         <Link to={`/posts/${postid}`} className='w-full sm:w-[48%] lg:w-[71%]'>
             <div className='
-                w-full h-full
+                w-full md:w-[78%] h-[170px]
                 bg-gray-800
                 hover:bg-gray-700
                 hover:shadow-xl

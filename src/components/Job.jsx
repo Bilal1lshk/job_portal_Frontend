@@ -2,13 +2,14 @@ import React from 'react'
 import { Badge } from "@/components/ui/badge"
 import { Link } from 'react-router-dom'
 
-export default function Job({ job }) {
+export default function Job({ job, fullpage }) {
     return (
-        <Link to={`/jobs/${job._id}`} className='w-full sm:w-[48%] lg:w-[31%]'>
+        <Link to={`/jobs/${job._id}`} className={`w-full sm:w-[48%]   lg:w-[41%] `}>
             <div
                 data-aos="fade-up-right"
                 className='
                     w-full h-full
+                    m-4
                     bg-blue-100
                     border border-gray-200
                     hover:shadow-lg hover:border-blue-200

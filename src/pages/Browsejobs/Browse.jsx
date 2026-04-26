@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../../components/resuable/navbar.jsx'
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import Latestjobs from '../../components/Latestjobs.jsx'
+import { useSelector } from 'react-redux'
+import Job from '../../components/Job.jsx'
 
 const filterData = [
     {
@@ -21,6 +23,8 @@ const filterData = [
     },
 ]
 export default function Browse() {
+    const Alljobs = useSelector(store => store.jobdata.Alljobs)
+
     return (
         <>
             <Navbar />
@@ -61,11 +65,9 @@ export default function Browse() {
                     <div className='flex justify-center text-3xl font-medium'>
                         <h1>All Avaliable Jobs</h1>
                     </div>
-
-                    <div className='-mt-13'>
-                        <Latestjobs />
-                    </div>
-
+                        {
+                            Alljobs?.map((job) => <Job key={job._id} job={job} />)
+                        }
                 </div>
 
 

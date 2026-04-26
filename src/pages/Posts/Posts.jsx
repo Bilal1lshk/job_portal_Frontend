@@ -11,7 +11,7 @@ export default function Posts() {
   return (
     <div className='min-h-screen w-full  bg-[#99A1AF]'>
       <Navbar />
-      <div className='flex w-[90%] mt-9 mx-auto gap-7'>
+      <div className='flex w-[90%] flex-col mt-9 mx-auto gap-7'>
         {
           Array.isArray(data) && data.map((post, i) => (
             <div key={i}>
