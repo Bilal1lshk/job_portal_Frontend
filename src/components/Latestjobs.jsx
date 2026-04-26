@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Setuservalue } from '../redux/Setuser.js'
 import { setalljobs } from '../redux/Jobalice.js'
 
-const randomnumer = [1, 2, 3, 4, 5, 6,]
 
 export default function Latestjobs() {
   const dispatch = useDispatch()

@@ -24,10 +24,9 @@ export default function Navbar() {
 
 
     return (
-        <motion.div
-            animate={{ x: [-200, 0], opacity: [0.8, 1] }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className='h-[100px] w-full bg-white px-3.5'>
+        <div
+            data-aos="zoom-in-right"
+             className='h-[100px] w-full bg-white px-3.5'>
 
             <div className={`min-h-screen w-[60%] ${mobilenav ? "" : "hidden"} z-40 flex  justify-end absolute -left-3  bg-blue-200`}>
                 <div className='w-full h-full'>
@@ -162,7 +161,7 @@ export default function Navbar() {
                                     {/* ✅ Logout function hai, Link nahi */}
                                     <Link to={"/logout"}>  <Button onClick={handleLogout}>Logout</Button></Link>
                                     {
-                                        user?.role === "student" ? <Link to={"/profile"}><Button>View Profile</Button></Link> : <div><h1>Admin</h1></div>
+                                        user?.role === "student" ? <Link to={"/profile"}><Button>View Profile</Button></Link> : <div><h1 className='font-medium mt-1'>Admin</h1></div>
                                     }
                                 </div>
                             </PopoverContent>
@@ -170,7 +169,7 @@ export default function Navbar() {
                     </div>
                 )}
             </div>
-        </motion.div >
+        </div >
     )
 }
 

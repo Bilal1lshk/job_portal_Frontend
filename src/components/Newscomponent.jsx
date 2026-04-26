@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 export default function Newscomponent({ post}) {
     const postid=post?._id
     return (
-        <div className="w-full max-w-auto flex flex-wrap mx-auto">
+        <div className="min-w-full  flex flex-wrap mx-auto">
             <Link to={`/posts/${postid}`}>
                 
-                <div className="h-full rounded-xl shadow-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-4 text-white flex flex-col justify-between">
+                <div className="h-[150px] w-[500px] rounded-xl shadow-lg bg-gray-800 hover:bg-gray-700 transition-all duration-300 p-4 text-white flex flex-col justify-between">
 
                     {/* Header */}
                     <div className="text-xs sm:text-sm text-gray-300 mb-2">
@@ -15,8 +15,8 @@ export default function Newscomponent({ post}) {
                     </div>
 
                     {/* Title */}
-                    <div className="text-base sm:text-lg md:text-xl font-semibold mb-2">
-                        {post?.title?.slice(0, 40)}...
+                    <div className="text-base sm:text-lg md:text-xl font-semibold mb-2 line-clamp-2">
+                        {post?.title}...
                     </div>
 
                     {/* Description */}

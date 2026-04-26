@@ -10,7 +10,7 @@ import {
 import axios from 'axios'
 import { Secret_api_key } from '../../Constants/keys'
 import { toast } from 'sonner'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Setuservalue } from '../../redux/Setuser'
 
@@ -47,7 +47,7 @@ export default function Logout() {
                     </DialogHeader>
                     <div className="flex justify-end gap-3 mt-4">
                         <button className="px-4 py-2 rounded-md border hover:bg-gray-100">
-                            Cancel
+                          <Link to={'/'}>Cancel</Link>  
                         </button>
                         <button onClick={logoutfunction} className="px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-700">
                             Logout
