@@ -15,18 +15,20 @@ import { allapplicationssatatus } from '../redux/Applicants';
 
 export default function Aplicationstaus() {
     const dispatch = useDispatch()
-    const statuses = useSelector(store => store?.applicant?.applicationsattus)
     useEffect(() => {
         async function applicationstatus() {
             const alldata = await axios.get(`${Secret_admin_application_key}/get`, {
                 withCredentials: true
             })
-            dispatch(allapplicationssatatus(alldata?.data?.appliedjobs))
+            console.log(alldata)
+            const maindata=alldata?.data?.map((data)=>data)
+            dispatch(allapplicationssatatus(maindata))
         }
         applicationstatus()
 
 
     }, [])
+    const statuses = useSelector(store => store?.applicant?.applicationsattus)
     return (
 
         <div>
@@ -36,7 +38,7 @@ export default function Aplicationstaus() {
                     <TableRow>
                         <TableHead className="w-[100px]">Date </TableHead>
                         <TableHead>JobRole</TableHead>
-                        <TableHead className="text-right">Status</TableHead>
+                        <TableHead className="text-left">Status</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>

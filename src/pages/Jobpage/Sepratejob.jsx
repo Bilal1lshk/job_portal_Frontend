@@ -109,13 +109,7 @@ export default function Sepratejob() {
                                 {result ? <><CheckCircle2 size={14} /> Applied!</> : <><Send size={14} /> Apply Now</>}
                             </button>
 
-                            <button
-                                onClick={() => setSaved(!saved)}
-                                className={`flex items-center justify-center gap-2 px-7 py-3 rounded-sm text-xs tracking-widest uppercase font-sans cursor-pointer transition-all duration-200 bg-transparent ${saved ? 'text-[#C9B99A] border border-[#C9B99A]' : 'text-[#0D1A63] border border-[#0D1A63]'}`}
-                            >
-                                <BookmarkPlus size={14} />
-                                {saved ? 'Saved' : 'Save Job'}
-                            </button>
+                          
                         </div>
                     </div>
                 </div>
@@ -136,25 +130,7 @@ export default function Sepratejob() {
                             </p>
                         </div>
 
-                        {/* Responsibilities */}
-                        <div className="bg-white rounded-sm shadow-md px-10 py-9">
-                            <h2 className="text-xs tracking-widest uppercase text-[#C9B99A] font-sans font-semibold mb-5">Responsibilities</h2>
-                            <ul className="flex flex-col gap-3">
-                                {[
-                                    'Build and maintain scalable frontend applications using React and TypeScript',
-                                    'Collaborate with UI/UX designers to implement pixel-perfect interfaces',
-                                    'Write clean, testable, and well-documented code',
-                                    'Mentor junior developers and conduct code reviews',
-                                    'Optimize application performance and ensure cross-browser compatibility',
-                                    'Participate in agile ceremonies and contribute to sprint planning',
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-gray-500 font-sans leading-relaxed">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-[#C9B99A] mt-2 shrink-0" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                     
 
                         {/* Skills */}
                         <div className="bg-white rounded-sm shadow-md px-10 py-9">

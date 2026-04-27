@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <div
             data-aos="zoom-in-right"
-             className='h-[100px] w-full bg-white px-3.5   z-30'>
+            className='h-[100px] w-full bg-white px-3.5   z-30'>
 
             <div className={`min-h-screen w-[60%] ${mobilenav ? "" : "hidden"} z-20 flex  md:hidden justify-end absolute -left-3  bg-blue-400`}>
                 <div className='w-full h-full'>
@@ -142,8 +142,9 @@ export default function Navbar() {
                         <Popover>
                             <PopoverTrigger>
                                 <Avatar className="h-full w-full">
-                                    <AvatarImage className="w-[55px] object-cover" src={user?.profile?.profilephoto} />
-                                    <AvatarFallback>CN</AvatarFallback>
+                                    <AvatarImage className="w-[55px] object-cover" src={user?.profile?.profilephoto || "https://th.bing.com/th/id/OIP.dDKYQqVBsG1tIt2uJzEJHwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"} />
+                                    <AvatarFallback>        {user?.fullname?.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2) || "U"}
+                                    </AvatarFallback>
                                 </Avatar>
                             </PopoverTrigger>
 
