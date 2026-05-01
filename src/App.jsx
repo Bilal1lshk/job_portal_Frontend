@@ -25,6 +25,7 @@ import PostUpdate from './components/Adminwork/PostUpdate.jsx'
 import Postdelete from './components/Adminwork/Postdelete.jsx'
 import Detailpost from './components/Adminwork/Detailpost.jsx'
 import { useEffect } from 'react'
+import Resume from './pages/Resume/Resume.jsx'
 
 function App() {
   const user = useSelector(store => store?.Setuser?.user)
@@ -43,6 +44,9 @@ function App() {
         <Route path='/browse' element={<Browse />} />
         <Route path='/posts' element={<Posts />} />
         <Route path='/profile' element={<Profile key={user?.id || 'profile'} />} />
+        <Route path='/addresume' element={<Resume />} />
+
+
         <Route path='/logout' element={<Logout />} />
         <Route path='/jobs/:id' element={<Sepratejob />} />
         {/* create admin job comonents */}

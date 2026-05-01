@@ -20,8 +20,7 @@ export default function Aplicationstaus() {
             const alldata = await axios.get(`${Secret_admin_application_key}/get`, {
                 withCredentials: true
             })
-            console.log(alldata)
-            const maindata=alldata?.data?.map((data)=>data)
+            const maindata = alldata?.data?.map((data) => data)
             dispatch(allapplicationssatatus(maindata))
         }
         applicationstatus()

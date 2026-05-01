@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/resuable/navbar.jsx'
-import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis } from 'lucide-react';
+import { CircleUser, Mail, Phone, PencilOff, SkullIcon, ChevronsLeftRightEllipsis, Link2Icon } from 'lucide-react';
 
 import Aplicationstaus from '../../components/Aplicationstaus.jsx';
 import Edittab from '../../components/resuable/Edittab.jsx';
 import { useSelector } from 'react-redux';
 import { Button } from '../../components/ui/button.jsx';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,9 +20,11 @@ export default function Profile() {
     <div className='min-h-screen  min-w-full bg-[#8EC5FF]'>
       <div className='w-full h-full '>
         <Navbar />
-        <div className='flex justify-center mt-7 text-4xl'>
+        <div className='flex flex-col justify-center items-center mt-7 text-4xl'>
 
           <h4>Your Profile {user?.fullname}</h4>
+          <br />
+          <Link to="/addresume" className='text-[25px] text-blue-800'>Wanna add your resume?</Link>
         </div>
         <div className="intro min-h-[65%] max-h-[90%] mx-auto text-[#1C0770] font-medium  mt-14 md:w-[65%] w-[80%] p-2 shadow-sm bg-[#8EC5FF]">
           <div className="edit flex justify-end items-center p-3 ">
@@ -40,6 +43,10 @@ export default function Profile() {
             <div className='flex w-full md:flex-row flex-col items-center gap-2   '>
               <Phone />
               <p>{user?.Phonenumber}</p>
+            </div>
+            <div className='flex w-full md:flex-row flex-col items-center gap-2   '>
+              <Link2Icon />
+              <Link to={`${user?.profile?.resume}`}>Your resume</Link>
             </div>
 
             <div className='flex w-full md:flex-row flex-col items-center gap-2 '>
