@@ -25,6 +25,7 @@ export default function Deleteadminjob() {
         const response = await axios.get(`${Secret_admin_Jobs_keys}deletejob/${id}`, {
             withCredentials: true
         })
+        console.log(response)
         if (!response) {
             return toast.message("Cannot create a message")
         }
@@ -37,7 +38,7 @@ export default function Deleteadminjob() {
             <Navbar />
             <div className='h-full flex flex-col w-full item-center mt-14'>
                 <div className='mx-auto'>
-                    <h3 className='text-4xl  '>Are you sure you wanna delete Your post?</h3>
+                    <h3 className='text-4xl  '>Are you sure you wanna delete Your Job?</h3>
                 </div>
                 <div className='flex justify-center mt-8 gap-3'>
                     <Button variant="outline">Cancel</Button>

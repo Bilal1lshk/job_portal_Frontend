@@ -18,6 +18,7 @@ export default function ViewApplicants() {
             })
             console.log(response)
             const data = response?.data?.job.map((o) => o)
+            console.log(data)
             dispatch(setaaplicantvalue(data))
         } catch (error) {
         }
@@ -154,6 +155,9 @@ export default function ViewApplicants() {
                                     {app.status}
                                 </p>
                             </div>
+                        </div>
+                        <div>
+                            <p><Link  className ={"text-blue-600 "} to={app?.applicant?.profile?.resume}>Resume</Link></p>
                         </div>
 
                         {/* Bio */}
