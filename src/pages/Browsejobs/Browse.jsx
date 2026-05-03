@@ -60,9 +60,9 @@ export default function Browse() {
                     </div>
 
                 </div>
-                <div className='w-[65%] h-full'>
+                <div className='w-[65%] h-full p-2'>
 
-                    <div className='flex justify-center text-3xl font-medium'>
+                    <div className='flex justify-center text-3xl font-medium '>
                         <h1>All Avaliable Jobs</h1>
                     </div>
                         {

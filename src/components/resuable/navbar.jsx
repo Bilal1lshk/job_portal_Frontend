@@ -23,7 +23,7 @@ export default function Navbar() {
     }
 
 
-    return (
+    return (//mobile nav
         <div
             data-aos="zoom-in-right"
             className='h-[100px] w-full bg-white px-3.5   z-30'>
@@ -68,7 +68,7 @@ export default function Navbar() {
                                 <Popover>
                                     <PopoverTrigger>
                                         <Avatar className="h-full w-full">
-                                            <AvatarImage className="w-[55px] object-cover" src={user?.profile?.profilephoto} />
+                                            <AvatarImage className="w-[55px] object-cover" src={user?.profile?.profilephoto || "https://th.bing.com/th/id/OIP.dDKYQqVBsG1tIt2uJzEJHwHaHa?w=210&h=210&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3"} />
                                             <AvatarFallback>CN</AvatarFallback>
                                         </Avatar>
                                     </PopoverTrigger>
@@ -99,6 +99,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            {/* fullnav */}
             <div className='h-full flex justify-between'>
                 <div className='rounded-md   h-full pt-1 pb-1'>
                     <Link to={"/"}><img className='object-cover h-full rounded-full' src="/Gemini_Generated_Image_4uja724uja724uja.png" alt="Logo" /></Link>

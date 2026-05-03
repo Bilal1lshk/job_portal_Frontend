@@ -58,11 +58,12 @@ export default function Job({ job, fullpage }) {
                         <p className='text-xs font-semibold uppercase tracking-widest text-gray-400'>
                             Requirements
                         </p>
-                        <div className='flex flex-wrap gap-2 p-3 overflow-hidden'>
+                        <div className='flex flex-wrap gap-2 p-3 overflow-visible break-all'>
                             {job.requirments.map((req) => (
                                 <Badge
                                     key={req}
-                                    className='bg-gray-100 text-gray-600 border border-gray-200 rounded-full text-xs font-medium'
+                                    className='bg-gray-100 word-wrap: break-word;
+ break-all text-gray-600 border border-gray-200 rounded-full text-xs font-medium max-w-[90%] h-auto'
                                 >
                                     {req}
                                 </Badge>

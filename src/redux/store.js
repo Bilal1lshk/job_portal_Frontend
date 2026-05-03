@@ -18,6 +18,7 @@ import companyslice from "./companyslice.js";
 import postslice from "./postslice.js";
 import { localStorage } from 'redux-persist/lib/storage'
 import storage from "../Constants/sotrage.js";
+import filter from "./Filter.js"
 const perssistconfig = {
     key: "root",
     storage
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
     jobdata: jobslice,
     company: companyslice,
     applicant:Applicantslice,
-    postsdata:postslice
+    postsdata:postslice,
+    filterdata:filter
    
 })
 const persistedReducer = persistReducer(perssistconfig, rootReducer)
